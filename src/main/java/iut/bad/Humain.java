@@ -1,9 +1,10 @@
 package iut.bad;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Humain implements Consommation {
-    private static final Logger LOGGER = Logger.getLogger(Humain.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(Humain.class);
 
     protected String nom;
     protected String prenom;
@@ -13,7 +14,7 @@ public class Humain implements Consommation {
         super();
     }
 
-    public Humain(String nom,String prenom,int age) {
+    public Humain(String nom, String prenom, int age) {
         super();
         this.nom = nom;
         this.prenom = prenom;
@@ -21,31 +22,30 @@ public class Humain implements Consommation {
     }
 
     public void details() {
-        LOGGER.info(toString());
+        LOGGER.info("{}", this.toString());
     }
 
     @Override
     public String toString() {
-        return nom + " , " + prenom + " et " + age;
+        return String.format("%s , %s et %d", nom, prenom, age);
     }
 
     @Override
     public void manger() {
-        LOGGER.info(nom + " " + prenom + " prend le temps de manger.");
+        LOGGER.info("{} {} prend le temps de manger.", nom, prenom);
     }
 
     @Override
     public void boire() {
-        LOGGER.info(nom + " " + prenom + " s'accorde un moment pour boire.");
+        LOGGER.info("{} {} s'accorde un moment pour boire.", nom, prenom);
     }
 
-    public void ami(Humain h) {
-        ami(h, 100);
+    public void ami(Humain autre) {
+        ami(autre, 100);
     }
 
-    public void ami(Humain h, int duree) {
-        LOGGER.info(this.nom + " " + this.prenom +
-                    " est maintenant ami avec " + h.nom + " " + h.prenom +
-                    " pour " + duree + " jours.");
+    public void ami(Humain autre, int duree) {
+        LOGGER.info("{} {} est maintenant ami avec {} {} pour {} jours.",
+                this.nom, this.prenom, autre.nom, autre.prenom, duree);
     }
 }
