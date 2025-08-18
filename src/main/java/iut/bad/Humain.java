@@ -10,12 +10,9 @@ public class Humain implements Consommation {
     protected String prenom;
     protected int age;
 
-    public Humain() {
-        super();
-    }
+    public Humain() { }
 
     public Humain(String nom, String prenom, int age) {
-        super();
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;

@@ -10,4 +10,3 @@ public class Homme extends Humain {
         return String.format("Monsieur %s , %s et %d", nom, prenom, age);
     }
 }
-

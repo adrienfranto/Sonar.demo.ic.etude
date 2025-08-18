@@ -18,4 +18,3 @@ public class Femme extends Humain {
         f.ami(h, 7000);
     }
 }
-
