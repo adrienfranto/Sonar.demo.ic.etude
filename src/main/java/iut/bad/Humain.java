@@ -22,7 +22,7 @@ public class Humain implements Consommation {
     }
 
     public void details() {
-        LOGGER.info("{}", this.toString());
+        LOGGER.info("{}", this);
     }
 
     @Override
